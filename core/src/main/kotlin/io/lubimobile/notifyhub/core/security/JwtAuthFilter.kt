@@ -14,9 +14,6 @@ import org.springframework.web.filter.OncePerRequestFilter
 @Component
 class JwtAuthFilter(
     private val properties: NotifyHubSecurityProperties,
-//    @Value("\${security.jwt.static-tokens.device}") private val deviceToken: String,
-//    @Value("\${security.jwt.static-tokens.sender}") private val senderToken: String,
-//    @Value("\${security.jwt.static-tokens.admin}") private val adminToken: String,
     private val tokenMapper: TokenMapper
 ) : OncePerRequestFilter() {
 

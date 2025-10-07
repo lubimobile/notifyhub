@@ -4,6 +4,7 @@ import io.lubimobile.notifyhub.core.api.UserDeviceService
 import io.lubimobile.notifyhub.core.web.request.UserDeviceSubscribeRequest
 import io.lubimobile.notifyhub.core.web.request.UserDeviceUnsubscribeRequest
 import io.lubimobile.notifyhub.core.web.response.UserDeviceResponse
+import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -23,7 +24,7 @@ class UserDeviceController(
         const val FAILURE = "FAILURE"
     }
 
-    private val log = LoggerFactory.getLogger(UserDeviceController::class.java)
+    private val log: Logger = LoggerFactory.getLogger(UserDeviceController::class.java)
 
     @PostMapping("/subscribe")
     fun subscribe(@RequestBody request: UserDeviceSubscribeRequest): ResponseEntity<UserDeviceResponse> = try {

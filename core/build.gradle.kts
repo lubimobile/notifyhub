@@ -16,10 +16,10 @@ dependencies {
     api(libs.reactor.kotlin.extensions)
     api(libs.kotlinx.coroutines.reactor)
     runtimeOnly(libs.h2)
-    api(libs.firebase.admin)
     api(libs.jjwt.api)
     runtimeOnly(libs.jjwt.impl)
     runtimeOnly(libs.jjwt.jackson)
+
     annotationProcessor(libs.spring.boot.configuration.processor)
     kapt(libs.spring.boot.configuration.processor)
 
@@ -42,9 +42,6 @@ java {
     withSourcesJar()
     withJavadocJar()
 }
-
-//print("GroupId: ${project.group}")
-//print("Version: ${project.version}")
 
 publishing {
     publications {

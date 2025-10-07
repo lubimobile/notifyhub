@@ -1,5 +1,6 @@
 package io.lubimobile.notifyhub.core.model
 
+import io.lubimobile.notifyhub.core.constant.Platform
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
@@ -38,10 +39,6 @@ data class UserDevice(
     @Column(name = "updated_at", nullable = false)
     var updatedAt: Instant = Instant.now()
 ) {
-
-    enum class Platform {
-        RUSTORE, FCM, HMS
-    }
 
     @PreUpdate
     fun onPreUpdate() {
