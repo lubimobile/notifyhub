@@ -17,9 +17,8 @@ dependencies {
     api(libs.kotlinx.coroutines.reactor)
     runtimeOnly(libs.h2)
     api(libs.jjwt.api)
-    runtimeOnly(libs.jjwt.impl)
-    runtimeOnly(libs.jjwt.jackson)
-
+    implementation(libs.jjwt.impl)
+    implementation(libs.jjwt.jackson)
     annotationProcessor(libs.spring.boot.configuration.processor)
     kapt(libs.spring.boot.configuration.processor)
 
