@@ -1,6 +1,7 @@
 package io.lubimobile.notifyhub.core.repository
 
 import io.lubimobile.notifyhub.core.api.UserDeviceRepository
+import io.lubimobile.notifyhub.core.constant.Platform
 import io.lubimobile.notifyhub.core.model.UserDevice
 import org.springframework.stereotype.Repository
 
@@ -18,7 +19,7 @@ class H2UserDeviceRepository(
     override fun findDeviceByDeviceToken(deviceToken: String): UserDevice? =
         jpa.findDeviceByDeviceToken(deviceToken)
 
-    override fun findByUserIdAndPlatform(userId: String, platform: UserDevice.Platform): List<UserDevice> =
+    override fun findByUserIdAndPlatform(userId: String, platform: Platform): List<UserDevice> =
         jpa.findByUserIdAndPlatform(userId, platform)
 
     override fun findDeviceByDeviceId(deviceId: String): List<UserDevice> =

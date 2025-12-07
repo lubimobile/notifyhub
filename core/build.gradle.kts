@@ -16,7 +16,6 @@ dependencies {
     api(libs.reactor.kotlin.extensions)
     api(libs.kotlinx.coroutines.reactor)
     runtimeOnly(libs.h2)
-    api(libs.firebase.admin)
     api(libs.jjwt.api)
     implementation(libs.jjwt.impl)
     implementation(libs.jjwt.jackson)
@@ -42,9 +41,6 @@ java {
     withSourcesJar()
     withJavadocJar()
 }
-
-//print("GroupId: ${project.group}")
-//print("Version: ${project.version}")
 
 publishing {
     publications {

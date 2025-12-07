@@ -23,8 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 class NotifyHubSecurityAutoConfiguration(
-    private val properties: NotifyHubSecurityProperties,
-//    private val jwtAuthFilter: JwtAuthFilter
+    private val properties: NotifyHubSecurityProperties
 ) {
 
     private val log = LoggerFactory.getLogger(NotifyHubSecurityAutoConfiguration::class.java)
