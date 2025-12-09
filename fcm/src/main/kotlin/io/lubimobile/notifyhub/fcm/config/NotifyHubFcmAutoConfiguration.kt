@@ -7,7 +7,6 @@ import com.google.firebase.messaging.FirebaseMessaging
 import io.lubimobile.notifyhub.core.api.UserDeviceService
 import io.lubimobile.notifyhub.fcm.config.properties.NotifyHubFcmProperties
 import io.lubimobile.notifyhub.fcm.provider.FcmPushProvider
-import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.io.ClassPathResource

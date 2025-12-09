@@ -4,11 +4,8 @@ import io.lubimobile.notifyhub.core.api.PushNotificationManager
 import io.lubimobile.notifyhub.core.api.PushNotificationService
 import io.lubimobile.notifyhub.core.api.SentMessageService
 import io.lubimobile.notifyhub.core.api.UserDeviceService
-import io.lubimobile.notifyhub.core.constant.Platform
 import io.lubimobile.notifyhub.core.dto.PushMessage
 import io.lubimobile.notifyhub.core.dto.PushNotificationResult
-import io.lubimobile.notifyhub.core.model.UserDevice
-import jakarta.transaction.Transactional
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
