@@ -5,9 +5,18 @@ import io.lubimobile.notifyhub.core.model.UserDevice
 
 interface UserDeviceRepository {
     fun save(userDevice: UserDevice): UserDevice
+
+    fun findAll(): List<UserDevice>
+
     fun findByUserId(userId: String): List<UserDevice>
+
     fun findDeviceByDeviceToken(deviceToken: String): UserDevice?
+
     fun findByUserIdAndPlatform(userId: String, platform: Platform): List<UserDevice>
+
     fun findDeviceByDeviceId(deviceId: String): List<UserDevice>
+
     fun deleteByDeviceToken(deviceToken: String)
+
+    fun deleteByUserIdAndDeviceToken(userId: String, deviceToken: String)
 }

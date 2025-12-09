@@ -5,4 +5,5 @@ import io.lubimobile.notifyhub.core.constant.Platform
 
 interface PushNotificationManager {
     fun send(platform: Platform, notification: PushNotification): String?
+    fun deleteUnregisteredUserDevice(platform: Platform, userId: String, tokenDevice: String, exception: Exception)
 }
