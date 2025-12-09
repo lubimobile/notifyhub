@@ -11,6 +11,7 @@ class DefaultUserDeviceService(
     private val repository: UserDeviceRepository
 ) : UserDeviceService {
 
+    @Transactional
     override fun saveUserDevice(userDevice: UserDevice) {
         val existingDevice = repository.findDeviceByDeviceToken(userDevice.deviceToken)
         if (existingDevice != null) {
@@ -20,14 +21,12 @@ class DefaultUserDeviceService(
         }
     }
 
-    override fun deleteUserDevice(deviceToken: String) {
-        repository.deleteByDeviceToken(deviceToken)
-    }
-
-    override fun findByUserId(userId: String): List<UserDevice> = repository.findByUserId(userId)
+    override fun findByUserId(userId: String): List<UserDevice> =
+        repository.findByUserId(userId)
 
     @Transactional
-    override fun deleteInvalidToken(deviceToken: String) = repository.deleteByDeviceToken(deviceToken)
+    override fun deleteInvalidToken(deviceToken: String) =
+        repository.deleteByDeviceToken(deviceToken)
 
     @Transactional
     override fun deleteInvalidToken(userId: String, deviceToken: String) =

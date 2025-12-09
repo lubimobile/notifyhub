@@ -6,8 +6,6 @@ interface UserDeviceService {
 
     fun saveUserDevice(userDevice: UserDevice)
 
-    fun deleteUserDevice(deviceToken: String)
-
     fun findByUserId(userId: String): List<UserDevice>
 
     fun deleteInvalidToken(deviceToken: String)

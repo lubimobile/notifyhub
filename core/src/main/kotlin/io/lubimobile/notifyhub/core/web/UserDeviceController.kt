@@ -7,6 +7,7 @@ import io.lubimobile.notifyhub.core.web.response.UserDeviceResponse
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -27,35 +28,26 @@ class UserDeviceController(
     private val log: Logger = LoggerFactory.getLogger(UserDeviceController::class.java)
 
     @PostMapping("/subscribe")
-    fun subscribe(@RequestBody request: UserDeviceSubscribeRequest): ResponseEntity<UserDeviceResponse> = try {
+    fun subscribe(@RequestBody request: UserDeviceSubscribeRequest): ResponseEntity<UserDeviceResponse> {
         val userDevice = request.toModel()
         userDeviceService.saveUserDevice(userDevice)
 
         log.debug("Subscribe User Device with userId: '{}' completed successfully", request.userId)
 
-        ResponseEntity.ok(UserDeviceResponse(SUBSCRIBES))
-    } catch (ex: Exception) {
-        log.warn("Exception in subscribe User Device: ${ex.message}")
-        ResponseEntity.internalServerError()
-            .body(UserDeviceResponse(
-                FAILURE,
-                "Ошибка регистрации токена устройства: ${ex.message}"
-            ))
+        return ResponseEntity.ok(UserDeviceResponse(SUBSCRIBES))
     }
 
     @PostMapping("/unsubscribe")
-    fun unsubscribe(@RequestBody request: UserDeviceUnsubscribeRequest): ResponseEntity<UserDeviceResponse> = try {
-        userDeviceService.deleteUserDevice(request.deviceToken)
+    fun unsubscribe(@RequestBody request: UserDeviceUnsubscribeRequest): ResponseEntity<UserDeviceResponse> {
+        userDeviceService.deleteInvalidToken(request.deviceToken)
 
-        log.info("Unsubscribe User Device completed successfully")
+        return ResponseEntity.ok(UserDeviceResponse(UNSUBSCRIBE))
+    }
 
-        ResponseEntity.ok(UserDeviceResponse(UNSUBSCRIBE))
-    } catch (ex: Exception) {
-        log.warn("Exception in unsubscribe User Device: ${ex.message}")
-        ResponseEntity.internalServerError()
-            .body(UserDeviceResponse(
-                FAILURE,
-                "Ошибка удаления токена устройства: ${ex.message}"
-            ))
+    @ExceptionHandler(Throwable::class)
+    fun handleException(ex: Throwable): ResponseEntity<UserDeviceResponse> {
+        log.warn(ex.message, ex)
+        return ResponseEntity.internalServerError()
+            .body(UserDeviceResponse(FAILURE, ex.message))
     }
 }
