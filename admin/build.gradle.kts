@@ -53,7 +53,7 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
             groupId = project.group.toString()
-            artifactId = "notifyhub-fcm-starter"
+            artifactId = "notifyhub-admin-starter"
             version = project.version.toString()
         }
     }
