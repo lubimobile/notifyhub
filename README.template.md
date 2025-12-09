@@ -12,13 +12,15 @@
 
 1. **`notifyhub-core-starter`** - Ядро содержащие в себе набор контроллеров по умолчанию.
 2. **`notifyhub-fcm-starter`** - Отправка уведомлений через FCM сервис
+3. **`notifyhub-admin-starter`** - Администрирование подписанных на уведомления пользователей и отправленных уведомлений
 
 ## 🚀 Быстрый старт
 
 ## 📖 Документация
 
-* [ Dispatcher Starter Documentation ](./core/README.md) - Ядро
-* [ Processor Starter Documentation ](./fcm/README.md) - Firebase Cloud Messaging
+* [ Core Starter Documentation ](./core/README.md) - Ядро
+* [ FCM (Firebase Cloud Messaging) Starter Documentation ](./fcm/README.md) - Firebase Cloud Messaging
+* [ Admin Starter Documentation ](./admin/README.md) - Firebase Cloud Messaging
 
 ## 📄 Лицензия
 Этот проект распространяется под лицензией Apache License 2.0. См. LICENSE.
