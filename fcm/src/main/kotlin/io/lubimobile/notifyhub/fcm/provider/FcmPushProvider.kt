@@ -1,9 +1,12 @@
 package io.lubimobile.notifyhub.fcm.provider
 
 import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.messaging.FirebaseMessagingException
 import com.google.firebase.messaging.Message
+import com.google.firebase.messaging.MessagingErrorCode
 import com.google.firebase.messaging.Notification
 import io.lubimobile.notifyhub.core.api.PushNotificationProvider
+import io.lubimobile.notifyhub.core.api.UserDeviceService
 import io.lubimobile.notifyhub.core.dto.PushNotification
 import io.lubimobile.notifyhub.core.constant.Platform
 import io.lubimobile.notifyhub.core.constant.Platform.FCM
@@ -11,7 +14,8 @@ import org.springframework.stereotype.Component
 
 @Component
 class FcmPushProvider(
-    private val firebaseMessaging: FirebaseMessaging
+    private val firebaseMessaging: FirebaseMessaging,
+    private val userDeviceService: UserDeviceService
 ) : PushNotificationProvider {
 
     override val platform: Platform = FCM
@@ -28,6 +32,19 @@ class FcmPushProvider(
             .putAllData(notification.data)
             .setNotification(fcmNotification)
             .build()
+
         return firebaseMessaging.send(message)
+    }
+
+    override fun deleteUnregisteredUserDevice(userId: String, deviceToken: String, exception: Exception) {
+        val errorCode: MessagingErrorCode? = when (exception) {
+            is FirebaseMessagingException -> exception.messagingErrorCode
+            else -> null
+        }
+
+        when (errorCode) {
+            MessagingErrorCode.UNREGISTERED -> userDeviceService.deleteInvalidToken(userId, deviceToken)
+            else -> {}
+        }
     }
 }

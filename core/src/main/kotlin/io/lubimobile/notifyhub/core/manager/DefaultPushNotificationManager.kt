@@ -13,4 +13,9 @@ class DefaultPushNotificationManager(
         val provider = providers[platform] ?: error("No provider for platform $platform registered")
         return provider.send(notification)
     }
+
+    override fun deleteUnregisteredUserDevice(platform: Platform, userId: String, tokenDevice: String, exception: Exception) {
+        val provider = providers[platform] ?: error("No provider for platform $platform registered")
+        provider.deleteUnregisteredUserDevice(userId, tokenDevice, exception)
+    }
 }

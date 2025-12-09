@@ -13,6 +13,9 @@ class H2UserDeviceRepository(
     override fun save(userDevice: UserDevice): UserDevice =
         jpa.save(userDevice)
 
+    override fun findAll(): List<UserDevice> =
+        jpa.findAll()
+
     override fun findByUserId(userId: String): List<UserDevice> =
         jpa.findByUserId(userId)
 
@@ -27,4 +30,7 @@ class H2UserDeviceRepository(
 
     override fun deleteByDeviceToken(deviceToken: String) =
         jpa.deleteByDeviceToken(deviceToken)
+
+    override fun deleteByUserIdAndDeviceToken(userId: String, deviceToken: String) =
+        jpa.deleteByUserIdAndDeviceToken(userId, deviceToken)
 }

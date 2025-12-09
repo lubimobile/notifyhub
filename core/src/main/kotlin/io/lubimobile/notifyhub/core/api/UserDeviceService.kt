@@ -11,4 +11,6 @@ interface UserDeviceService {
     fun findByUserId(userId: String): List<UserDevice>
 
     fun deleteInvalidToken(deviceToken: String)
+
+    fun deleteInvalidToken(userId: String, deviceToken: String)
 }
