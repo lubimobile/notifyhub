@@ -14,7 +14,6 @@ repositories {
 dependencies {
     implementation(project(":core"))
     implementation(libs.spring.boot.starter.web)
-    api(libs.firebase.admin)
 
     annotationProcessor(libs.spring.boot.configuration.processor)
     kapt(libs.spring.boot.configuration.processor)
