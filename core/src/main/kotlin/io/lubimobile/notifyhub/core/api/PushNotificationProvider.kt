@@ -19,4 +19,6 @@ interface PushNotificationProvider {
      * @return sending message ID
      */
     fun send(notification: PushNotification): String?
+
+    fun deleteUnregisteredUserDevice(userId: String, deviceToken: String, exception: Exception)
 }
