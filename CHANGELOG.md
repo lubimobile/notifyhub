@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/lubimobile/notifyhub/compare/v1.0.0...v1.0.1) (2025-12-09)
+
+
+### Bug Fixes
+
+* core controller and user device service ([bc513e8](https://github.com/lubimobile/notifyhub/commit/bc513e8ba9bde1d6eb6b03e7265d35624ba7ef37))
+
 # 1.0.0 (2025-12-09)
 
 
