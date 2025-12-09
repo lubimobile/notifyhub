@@ -4,6 +4,7 @@ import com.google.auth.oauth2.GoogleCredentials
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseOptions
 import com.google.firebase.messaging.FirebaseMessaging
+import io.lubimobile.notifyhub.core.api.UserDeviceService
 import io.lubimobile.notifyhub.fcm.config.properties.NotifyHubFcmProperties
 import io.lubimobile.notifyhub.fcm.provider.FcmPushProvider
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -43,6 +44,9 @@ class NotifyHubFcmAutoConfiguration {
         FirebaseMessaging.getInstance(firebaseApp)
 
     @Bean
-    fun fcmPushProvider(firebaseMessaging: FirebaseMessaging): FcmPushProvider =
-        FcmPushProvider(firebaseMessaging)
+    fun fcmPushProvider(
+        firebaseMessaging: FirebaseMessaging,
+        userDeviceService: UserDeviceService
+    ): FcmPushProvider =
+        FcmPushProvider(firebaseMessaging, userDeviceService)
 }
