@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/lubimobile/notifyhub/compare/v1.0.1...v1.0.2) (2025-12-10)
+
+
+### Bug Fixes
+
+* saveUserDevice bug with deviceId check ([05d44c9](https://github.com/lubimobile/notifyhub/commit/05d44c943971f73f0a880e1704250fbc3ca35a5b))
+
 ## [1.0.1](https://github.com/lubimobile/notifyhub/compare/v1.0.0...v1.0.1) (2025-12-09)
 
 
