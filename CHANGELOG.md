@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/lubimobile/notifyhub/compare/v1.0.2...v1.0.3) (2025-12-10)
+
+
+### Bug Fixes
+
+* work on update user device ([f76ddda](https://github.com/lubimobile/notifyhub/commit/f76dddaf2aa692240969439bc97c36bef8c7f6a0))
+
 ## [1.0.2](https://github.com/lubimobile/notifyhub/compare/v1.0.1...v1.0.2) (2025-12-10)
 
 
