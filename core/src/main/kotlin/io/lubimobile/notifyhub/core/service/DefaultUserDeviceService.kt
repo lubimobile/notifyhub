@@ -15,7 +15,7 @@ class DefaultUserDeviceService(
     override fun saveUserDevice(userDevice: UserDevice) {
         val existingDevice = repository.findDeviceByDeviceToken(userDevice.deviceToken)
         if (existingDevice != null) {
-            repository.save(existingDevice.copy(userId = userDevice.userId, deviceId = userDevice.userId))
+            repository.save(existingDevice.copy(userId = userDevice.userId, deviceId = userDevice.deviceId))
         } else {
             repository.save(userDevice)
         }
